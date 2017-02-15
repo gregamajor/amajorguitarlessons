@@ -1,0 +1,2 @@
+<?php $city = 'cleveland'; ?>
+header
