@@ -1,0 +1,38 @@
+#The next four lines were commented out by WebFaction for DLZ-528174
+Action php_custom /my_php.cgi
+<FilesMatch .php$>
+    SetHandler php_custom
+</FilesMatch>
+
+RewriteEngine on
+# force non-www
+RewriteCond %{HTTP_HOST} ^www.amajorguitarlessons.com$ [NC]
+RewriteRule ^(.*)$ https://amajorguitarlessons.com/$1 [R=301,L]
+
+#RewriteRule ^attendance /attendance.html
+#RewriteRule ^attendance/ /attendance.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)/$ $1.php [NC,L]
+RewriteRule ^([^\.]+)/$ $1/index.php [NC,L]
+RewriteRule ^([^\.]+)$ http://%{SERVER_NAME}/$1/ [R=301,NC,L]
+
+RewriteRule ^index.html$ / [R=301]
+#Redirect /index.html /
+
+
+# BEGIN WordPress
+RewriteRule ^wp-(.*)$ /wordpress/wp-$1 [L]
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wordpress\/index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+</IfModule>
+
+# END WordPress
+
+
