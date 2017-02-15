@@ -17,7 +17,8 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 
 # Exclude the .htaccess file
-.htaccess
+#.htaccess
+# I commented out the ignore .htaccess so I could git add it for amajorguitarlessons.com
 
 # Exclude any PSD/AI source
 *.psd
