@@ -10,7 +10,8 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 
-/.htaccess
+#/.htaccess
+#again I commented this out to allow it for AMGL com site 
 /license.txt
 /readme.html
 /sitemap.xml
